@@ -54,8 +54,12 @@ router.get( '/aaa/:Category', async (req, res, next) =>{
         data = await classService.findAll()
     }
     //const data = await classService.findAll()
-    console.log( data )
-    res.json({result : data})
+    if( data ){
+        console.log( data )
+        res.json({result : data})
+    }else{
+        res.status(401).json({result : 'data is null'})
+    }
 })
 
 
