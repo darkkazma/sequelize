@@ -4,6 +4,7 @@ const logger = require('morgan')
 const createError = require('http-errors')
 
 const classRouter = require('./router/user')
+const ManagementRouter = require('./router/management')
 
 var app = express()
 
@@ -21,6 +22,8 @@ app.get('/v2/info/bbb', (req, res, next) => {
     console.log('/v2/info/bbb cal....')
     res.json( "aaaaa" )
 })
+
+app.use('/v2/management/', ManagementRouter)
 
 
 
